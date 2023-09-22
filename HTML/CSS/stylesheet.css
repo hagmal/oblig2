@@ -1,8 +1,13 @@
+#fForfattersen{
+    color: red;
+}
+
 .wrapper{
     padding: 20px;
     width: 100%;
     position: relative;
     background-color: whitesmoke; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 body{
@@ -12,9 +17,8 @@ body{
 .mainTxt{
     padding: 10px;
     background-color: whitesmoke;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#fForfattersen{
-    color: red;
-}
+
 
