@@ -1,7 +1,20 @@
 .wrapper{
-    padding: 30px;
+    padding: 20px;
     width: 100%;
     position: relative;
-    background-color: rgb(222, 21, 21); 
+    background-color: whitesmoke; 
+}
+
+body{
+    background-color: grey;
+}
+
+.mainTxt{
+    padding: 10px;
+    background-color: whitesmoke;
+}
+
+#fForfattersen{
+    color: red;
 }
 
