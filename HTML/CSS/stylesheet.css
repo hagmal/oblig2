@@ -8,7 +8,7 @@ body{
     padding: 20px;
     width: 95%;
     background-color: whitesmoke; 
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 h2{
     font-size: 15pt;
@@ -19,7 +19,7 @@ h2{
 }
 
 #bildetekst{
-    font-size: 7pt;
+    font-size: 8pt;
 }
 
 .mainTxt{
@@ -27,7 +27,7 @@ h2{
     padding: 20px;
     width: 95%;
     background-color: whitesmoke;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 11pt;
 }
 #avsnitt{
@@ -42,5 +42,5 @@ h3{
 
 footer{
     font-size: 8pt;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
