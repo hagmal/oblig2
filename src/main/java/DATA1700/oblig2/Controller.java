@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 public class Controller {
     public final List<Kinobillett> alleBilletter = new ArrayList<>();
-    @PostMapping("/lagre")
+    @PostMapping("/lagreBillett")
     public void lagreBillett (Kinobillett innBillett) {
         alleBilletter.add(innBillett);
     }

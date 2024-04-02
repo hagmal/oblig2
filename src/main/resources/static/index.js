@@ -1,6 +1,55 @@
 // oppretter et tomt array for å lagre billettene
-const billetter = [];
+// const billetter = [];
 
+function registrerBillett() {
+    // Lager et objekt med verdiene fra inputfeltene
+    const billett = {
+        film : $("#film").val(),
+        antall : $("#antall").val(),
+        fornavn : $("#fornavn").val(),
+        etternavn : $("#etternavn").val(),
+        telefonnr : $("#telefonnr").val(),
+        epost : $("#epost").val()
+    };
+    // Lagrer verdiene som er puttet inn i array på server
+    $.post("/lagreBillett", billett, function () {
+        hentBilletter();
+    });
+
+    // tømmer input-feltene når billett er registrert
+    $("#film").val("");
+    $("#antall").val("");
+    $("#fornavn").val("");
+    $("#etternavn").val("");
+    $("#telefonnr").val("");
+    $("#epost").val("");
+}
+// Henter ut de lagrede objektene fra Arrayet.
+// Denne koden og den under henger sammen, men er delt for å ha GET-kallet
+// så enkelt som mulig.
+// Denne øverste er GET-kallet fra server.
+function visBilletter() {
+    $.get("/hentBilletter", function (alleBilletter) {
+        skrivUtBilletter(alleBilletter);
+    });
+}
+// Denne koden skriver ut arrayet med en for-løkke og bestemmer hvordan
+// utskriften skal se ut
+function skrivUtBilletter(alleBilletter) {
+    let ut = "<table><tr>" +
+        "<th> Film </th> <th> Antall </th> <th> Fornavn </th> " +
+        "<th> Etternavn </th> <th> Telefonnr </th> " +
+        "<th> E-post </th></tr>";
+    for (let billett of alleBilletter) {
+        ut += "<tr>";
+        ut += "<td>" + billett.film + "</td><td>" + billett.antall
+            + "</td><td>" + billett.fornavn + "</td><td>" + billett.etternavn + "</td><td>"
+            + billett.telefonnr + "</td><td>" + billett.epost +"</td></tr>";
+    }
+    ut += "</table>";
+    $("#billettene").html(ut);
+}
+/*
 function registrerBillett() {
     // fjerner feilmeldingene når man retter opp i inputboksene og trykker "kjøp billett"
     document.getElementById("feilAntall").innerHTML = "";
@@ -83,3 +132,4 @@ function slettBilletter(){
     billetter.length = 0;
     visBilletter();
 }
+ */
