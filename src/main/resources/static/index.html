@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="application/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="index.js"></script>
+    <title> Bestilling av kinobilletter </title>
+</head>
+<body>
+<h1> Bestilling av kinobilletter </h1>
+
+<section>
+    <label for="film"> Velg film: </label>
+    <select id="film">
+        <option disabled selected> Velg film her </option> <!--Gjør at man ikke kan velge denne-->
+        <option> Wonka </option>
+        <option> Mean girls </option>
+        <option> Napoleon </option>
+    </select>
+</section>
+<br>
+<section>
+    <label for="antall"> Antall </label>
+    <input type="text" id="antall" style="width: 10px;"> <!-- For å få inputboksen mindre-->
+    <div id="feilAntall" style="color: red"></div>
+</section>
+<br>
+<table>
+    <tr><td> Fornavn </td><td><input type="text" id="fornavn"/></td><td> <div id="feilFornavn" style="color: red"></div></td></tr>
+    <tr><td> Etternavn </td><td><input type="text" id="etternavn"/></td><td> <div id="feilEtternavn" style="color: red"></div></td></tr>
+    <tr><td> Telefonnr </td><td><input type="text" id="telefonnr"/></td><td> <div id="feilTelefonnr" style="color: red"></div></td></tr>
+    <tr><td> E-post </td><td><input type="text" id="epost"></td><td> <div id="feilEpost" style="color: red"></div></td></tr>
+    <tr><td> <button onclick="registrerBillett()"> Kjøp billett </button></td></tr>
+</table>
+<br>
+
+<h2> Alle billetter </h2>
+<div id="billetter"></div>
+<button onclick="slettBilletter()"> Slett alle billettene </button>
+
+</body>
+</html>
