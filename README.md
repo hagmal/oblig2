@@ -1,4 +1,4 @@
-# Oblig 2 og 3
+# Oblig 2 
 OsloMet brukernavn: mahag2193
 
 GitHub brukernavn: hagmal
@@ -13,4 +13,5 @@ Oblig 1: Registrerer kjøp av kinobilletter. Etter at knappen "kjøp billett" er
 Arrayet med kjøpte billetter vises under "Alle billetter".
 Har også med inputvalideringer.
 
-Oblig 2: Flyttet lagring til tjener/server.
+Oblig 2: Flyttet lagring til tjener/server. Med get og postmapping. Sletter billettene med deletemapping.
+![img.png](img.png)

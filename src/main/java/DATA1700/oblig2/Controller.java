@@ -1,5 +1,6 @@
 package DATA1700.oblig2;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,5 +18,9 @@ public class Controller {
     @GetMapping("/hentBilletter")
     public List<Kinobillett> hentBilletter() {
         return alleBilletter;
+    }
+    @DeleteMapping("/slettAlleBilletter")
+    public void slettAlleBilletter() {
+        alleBilletter.clear();
     }
 }

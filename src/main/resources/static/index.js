@@ -36,7 +36,7 @@ function validerBillett() {
         valideringOk = false;
     }
     // Inputvalidering til "telefonnr". Det må være et nummer og ha 8 siffer
-    if (isNaN(telefonnr) || telefonnr.length !== 8){
+    if (isNaN(telefonnr) || telefonnr.length !== 8) {
         document.getElementById("feilTelefonnr").innerHTML = "Telefonnummeret må ha 8 siffer";
         valideringOk = false;
     }
@@ -46,35 +46,35 @@ function validerBillett() {
         document.getElementById("feilEpost").innerHTML = "Ikke gyldig e-postadresse";
         valideringOk = false;
     }
-    // Hvis inputvalideringen er vellykket kaller man på registrerBillett-funksjonen
+    // Hvis inputvalideringen er vellykket går man videre.
     return valideringOk;
 }
+
 function registrerBillett() {
     if (validerBillett()) {
-    // Lager et objekt med verdiene fra inputfeltene
-    const billett = {
-        film: $("#film").val(),
-        antall: $("#antall").val(),
-        fornavn: $("#fornavn").val(),
-        etternavn: $("#etternavn").val(),
-        telefonnr: $("#telefonnr").val(),
-        epost: $("#epost").val()
-    };
+        // Lager et objekt med verdiene fra inputfeltene
+        const billett = {
+            film: $("#film").val(),
+            antall: $("#antall").val(),
+            fornavn: $("#fornavn").val(),
+            etternavn: $("#etternavn").val(),
+            telefonnr: $("#telefonnr").val(),
+            epost: $("#epost").val()
+        };
 
-    // Lagrer verdiene som er puttet inn i array på server
-    $.post("/lagreBillett", billett, function () {
-        hentBilletter();
-    });
+        // Lagrer verdiene som er puttet inn i array på server
+        $.post("/lagreBillett", billett, function () {
+            hentBilletter();
+        });
 
-    // tømmer input-feltene når billett er registrert
-    $("#film").val("");
-    $("#antall").val("");
-    $("#fornavn").val("");
-    $("#etternavn").val("");
-    $("#telefonnr").val("");
-    $("#epost").val("");
-    }
-    else {
+        // tømmer input-feltene når billett er registrert
+        $("#film").val("");
+        $("#antall").val("");
+        $("#fornavn").val("");
+        $("#etternavn").val("");
+        $("#telefonnr").val("");
+        $("#epost").val("");
+    } else {
         console.log("Validering mislyktes, billetten er ikke registrert");
     }
 }
@@ -83,11 +83,12 @@ function registrerBillett() {
 // Denne koden og den under henger sammen, men er delt for å ha GET-kallet
 // så enkelt som mulig.
 // Denne øverste er GET-kallet fra server.
-function visBilletter() {
+function hentBilletter() {
     $.get("/hentBilletter", function (alleBilletter) {
         skrivUtBilletter(alleBilletter);
     });
 }
+
 // Denne koden skriver ut arrayet med en for-løkke og bestemmer hvordan
 // utskriften skal se ut
 function skrivUtBilletter(alleBilletter) {
@@ -99,17 +100,11 @@ function skrivUtBilletter(alleBilletter) {
         ut += "<tr>";
         ut += "<td>" + billett.film + "</td><td>" + billett.antall
             + "</td><td>" + billett.fornavn + "</td><td>" + billett.etternavn + "</td><td>"
-            + billett.telefonnr + "</td><td>" + billett.epost +"</td></tr>";
+            + billett.telefonnr + "</td><td>" + billett.epost + "</td></tr>";
     }
     ut += "</table>";
     $("#billettene").html(ut);
 }
 
-/*
-// Tømmer arrayet når man trykker på knappen "Slett alle billettene"
-function slettBilletter(){
-    billetter.length = 0;
-    visBilletter();
-}
+// MANGLER Å FÅ SLETTET BILLETTENE, MEN FÅR DET IKKE TIL
 
- */
