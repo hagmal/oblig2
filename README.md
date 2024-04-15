@@ -14,8 +14,14 @@ Arrayet med kjøpte billetter vises under "Alle billetter".
 Har også med inputvalideringer.
 
 Oblig 2: Flyttet lagring til tjener/server. Med get og postmapping. Sletter billettene med deletemapping.
+
+Bilde av server som kjører:
 ![img_5.png](img_5.png)
+
+Bildet av webapplikasjonen:
 ![img.png](img.png)
+
+Når man kjøper billett:
 ![img_2.png](img_2.png)
 ![img_3.png](img_3.png)
 ![img_4.png](img_4.png)
