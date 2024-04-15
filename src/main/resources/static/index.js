@@ -1,5 +1,5 @@
 function validerBillett() {
-
+    // Henter verdier fra input-feltene
     const film = $("#film").val();
     const antall = $("#antall").val();
     const fornavn = $("#fornavn").val();
@@ -7,7 +7,7 @@ function validerBillett() {
     const telefonnr = $("#telefonnr").val();
     const epost = $("#epost").val();
 
-    // tømmer input-feltene før man utfører nye valideringer
+    // Tømmer evt feilmeldingene før validering
     document.getElementById("feilFilm").innerHTML = "";
     document.getElementById("feilAntall").innerHTML = "";
     document.getElementById("feilFornavn").innerHTML = "";
@@ -15,8 +15,10 @@ function validerBillett() {
     document.getElementById("feilTelefonnr").innerHTML = "";
     document.getElementById("feilEpost").innerHTML = "";
 
+    // Boolean for å sjekke om valideringen av inputverdiene var vellykket
     let valideringOk = true;
 
+    // Inputvalidering for film, må ha valgt en film
     if (film === null || film === "") {
         document.getElementById("feilFilm").innerHTML = "Du må velge en film";
         valideringOk = false;
@@ -51,8 +53,9 @@ function validerBillett() {
 }
 
 function registrerBillett() {
+    // Sjekker om valideringen var vellykket
     if (validerBillett()) {
-        // Lager et objekt med verdiene fra inputfeltene
+        // Hvis valideringen var vellykket, lages et objekt med verdiene fra inputfeltene
         const billett = {
             film: $("#film").val(),
             antall: $("#antall").val(),
@@ -62,7 +65,7 @@ function registrerBillett() {
             epost: $("#epost").val()
         };
 
-        // Lagrer verdiene som er puttet inn i array på server
+        // Sender billettopplysningene til serveren. POST brukes for å lagre data på server
         $.post("/lagreBillett", billett, function () {
             hentBilletter();
         });
@@ -75,6 +78,7 @@ function registrerBillett() {
         $("#telefonnr").val("");
         $("#epost").val("");
     } else {
+        // Hvis valideringen mislyktes, logges en melding til konsollen
         console.log("Validering mislyktes, billetten er ikke registrert");
     }
 }
@@ -110,6 +114,7 @@ function skrivUtBilletter(alleBilletter) {
     $("#billettene").html(ut);
 }
 
+//Sletter alle billettene på serveren
 function slettAlleBilletter() {
     $.ajax({
         url: "/slettAlleBilletter",

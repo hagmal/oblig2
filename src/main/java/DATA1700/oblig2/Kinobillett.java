@@ -3,6 +3,7 @@ package DATA1700.oblig2;
 import javax.swing.*;
 
 public class Kinobillett {
+    // Attributter for kinobilletten
     private String film;
     private String antall;
     private String fornavn;
@@ -10,6 +11,7 @@ public class Kinobillett {
     private String telefonnr;
     private String epost;
 
+    // Konstruktør for å opprette en kinobillett
     public Kinobillett(String film, String antall, String fornavn, String etternavn, String telefonnr, String epost) {
         this.film = film;
         this.antall = antall;
@@ -18,8 +20,11 @@ public class Kinobillett {
         this.telefonnr = telefonnr;
         this.epost = epost;
     }
+
+    // Tom konstruktør
     public Kinobillett() {}
 
+    // Gettere og settere for attributtene
     public String getFilm() {
         return film;
     }
