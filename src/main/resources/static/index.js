@@ -84,9 +84,13 @@ function registrerBillett() {
 // så enkelt som mulig.
 // Denne øverste er GET-kallet fra server.
 function hentBilletter() {
-    $.get("/hentBilletter", function (alleBilletter) {
-        skrivUtBilletter(alleBilletter);
-    });
+    $.ajax({
+        url: "/hentBilletter",
+        method: "GET",
+        success: function (alleBilletter) {
+            skrivUtBilletter(alleBilletter);
+        }
+    })
 }
 
 // Denne koden skriver ut arrayet med en for-løkke og bestemmer hvordan
@@ -106,5 +110,13 @@ function skrivUtBilletter(alleBilletter) {
     $("#billettene").html(ut);
 }
 
-// MANGLER Å FÅ SLETTET BILLETTENE, MEN FÅR DET IKKE TIL
+function slettAlleBilletter() {
+    $.ajax({
+        url: "/slettAlleBilletter",
+        type: "DELETE",
+        success: function () {
+            hentBilletter();
+        }
+    })
+}
 

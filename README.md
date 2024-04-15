@@ -15,3 +15,4 @@ Har også med inputvalideringer.
 
 Oblig 2: Flyttet lagring til tjener/server. Med get og postmapping. Sletter billettene med deletemapping.
 ![img.png](img.png)
+![img_1.png](img_1.png)
